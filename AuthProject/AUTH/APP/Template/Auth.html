@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body style="background-color:#F5F5DC;">
+{% include "Header.html" %}
+<br>
+{% if normalUser %}
+<center>
+<h2 style="color:blue">Login</h2><br>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>User Name:</th>
+            <td><input type="text" name="username"></td>
+        </tr>
+
+        <tr>
+            <th>Password:</th>
+            <td><input type="text" name="pass"></td>
+        </tr>
+
+        <tr>
+            <td colspan="1"></td>
+            <td><input type="submit" value="Submit" name="submit"></td>
+        </tr>
+    </table>
+</form>
+    {% endif %}
+
+
+{% if logedin %}
+    {% for l in list %}
+    <h2 style="text-align:center">Hello {{ l.fName }}</h2>
+    <center><table>
+    <tr >
+        <td style="border: 1px solid black;">
+            <b>Your First Name</b>
+        </td>
+        <td style="border: 1px solid black;">
+            {{ l.fName }}
+        </td>
+        </tr>
+        <tr>
+         <td style="border: 1px solid black;">
+            <b>Your Last Name</b>
+        </td>
+        <td style="border: 1px solid black;">
+            {{ l.lName }}
+        </td>
+            </tr>
+        <tr>
+            <td style="border: 1px solid black;">
+            <b>Your Email Address</b>
+        </td>
+        <td style="border: 1px solid black;">
+            {{ l.email }}
+        </td>
+            </tr>
+        <tr>
+            <td style="border: 1px solid black;">
+                <b>Your Mobile Number</b>
+        </td>
+        <td style="border: 1px solid black;">
+            {{ l.mNumber }}
+        </td>
+    </tr>
+        </table>
+        </center>
+    {% endfor %}
+    {% endif %}
+
+</center>
+
+{% include "Footer.html" %}
+</body>
+</html>
+<style>
+    table td{
+     padding: 15px;
+
+    }
+
+
+</style>

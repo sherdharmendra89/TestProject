@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registered Here..</title>
+</head>
+<body  style="background-color:#e7e9eb;">
+{% include "Header.html" %}
+
+<center >
+    <br>
+    {% if flag %}
+    <h2>Registered Successfully..</h2>
+    <a href="/">Homepage</a>
+    {% endif %}
+    {% if flag1 %}
+    <h2>Registered Failed..</h2>
+    <a href="/reg/">Login Again</a>
+    {% endif %}
+    <br>
+
+
+
+
+    <br>
+    {% if flag0 %}
+<h2>Registered Here..</h2>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>First Name:</th>
+            <td><input type="text" name="fName"></td>
+        </tr>
+
+        <tr>
+            <th>Last Name:</th>
+            <td><input type="text" name="lName"></td>
+        </tr>
+
+        <tr>
+            <th>Email ID:</th>
+            <td><input type="text" name="email"></td>
+        </tr>
+
+        <tr>
+            <th>Password:</th>
+            <td><input type="password" name="password"></td>
+        </tr>
+
+        <tr>
+            <th>Mobile Number:</th>
+            <td><input type="text" name="mNumber"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" name="submit"></td>
+        </tr>
+    </table>
+</form>
+    {% endif %}
+</center>
+</body>
+</html>

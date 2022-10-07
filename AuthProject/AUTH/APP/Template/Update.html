@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Record Here..</title>
+</head>
+<body  style="background-color:#e7e9eb;">
+{% include "Header.html" %}
+{% if update %}
+<center>
+<h2 style="color:green">Updated Successfully</h2>
+    </center>
+{% endif %}
+{% if notupdate %}
+<center>
+
+<h2 style="color:red">Updated Successfully</h2>
+</center>
+{% endif %}
+
+<center >
+    <br>
+
+    {% for l in list %}
+    <h2>Update Record Here..</h2>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th></th>
+            <td><input type="hidden" name="id" value="{{l.id}}"></td>
+        </tr>
+        <tr>
+            <th>First Name:</th>
+            <td><input type="text" name="fName" value="{{l.fName}}"></td>
+        </tr>
+
+        <tr>
+            <th>Last Name:</th>
+            <td><input type="text" name="lName" value="{{l.lName}}"></td>
+        </tr>
+
+        <tr>
+            <th>Email ID:</th>
+            <td><input type="text" name="email" value="{{l.email}}"></td>
+        </tr>
+
+        <tr>
+            <th>Password:</th>
+            <td><input type="password" name="password" value="{{l.password}}"></td>
+        </tr>
+
+        <tr>
+            <th>Mobile Number:</th>
+            <td><input type="text" name="mNumber" value="{{l.mNumber}}"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" name="submit"></td>
+        </tr>
+    </table>
+</form>
+    {% endfor %}
+</center>
+</body>
+</html>

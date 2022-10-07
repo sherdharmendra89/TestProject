@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Data</title>
+</head>
+<body>
+{% include "Header.html" %}
+{% if request.session.username %}
+<center>
+    <h2> <i>All Data of Database </i></h2>
+<table border="2">
+    <tr>
+
+        <td>
+            First Name
+        </td>
+        <td>
+            Last Name
+        </td>
+        <td>
+            Email
+        </td>
+        <td>
+            Mobile Number
+        </td>
+        <td>
+            Action
+        </td>
+
+
+    </tr>
+{% if logedin %}
+    {% for l in list %}
+    <tr >
+        <td style="border: 1px solid black;">
+            {{ l.fName }}
+        </td>
+        <td style="border: 1px solid black;">
+            {{ l.lName }}
+        </td>
+        <td style="border: 1px solid black;">
+            {{ l.email }}
+        </td>
+        <td style="border: 1px solid black;">
+            {{ l.mNumber }}
+        </td>
+        <td>
+            <a href="/update/{{ l.id }}">Edit</a> &nbsp;
+            <a href="/delete/{{ l.id }}" style="color:red">Delete</a>
+        </td>
+    </tr>
+
+
+    {% endfor %}
+    {% endif %}
+    </table>
+    </center>
+{% endif %}
+{% include "Footer.html" %}
+
+</body>
+
+</html>
+<style>
+    table td{
+     padding: 15px;
+     border: 1px solid black;
+    }
+
+
+</style>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+</head>
+<body>
+<center>
+<h4>Welcome to Auth Project</h4>
+    </center>
+{% if logedin %}
+
+
+<a href="/">Homepage</a> &nbsp;
+<a href="/reg/">Registraion</a> &nbsp;
+<a href="/auth/">Profile</a>&nbsp;
+<a href="/checkdata/">Check All Data</a>&nbsp;
+
+<a href="/logout/"  style="float:right; font-size:20px;"><b>Logout</b></a>
+    {% endif %}
+
+{% if normalUser %}
+<h3>Hello, Guest</h3>
+{% endif %}
+
+<hr>
+</body>
+</html>
+<style>
+    body{
+    background-color:#F5F5DC !important;
+    }
+
+</style>
